@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var router = express.Router();
 var port = process.env.API_PORT || 3000;
+mongoose.connect('mongodb://aarondysonxavier:cPbPse*cbdehwFDceKNNEBU7@ds049496.mlab.com:49496/pepclock');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -17,10 +18,14 @@ app.use(function(req, res, next) {
  next();
 });
 
-// router.get('/', function(req, res) {
-//  res.json({ message: 'API Initialized!'});
-// });
+router.get('/', function(req, res) {
+ res.json({ message: 'API Initialized!'});
+});
 
+app.all('*', function (req, res, next){
+  console.log('Serving request type ' + req.method + ' for url ' + req.url);
+  next();
+});
 app.use(express.static(__dirname + '/public'));
 
 app.use('/api', router);
