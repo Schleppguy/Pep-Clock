@@ -7,9 +7,10 @@ class PepList extends React.Component {
   }
 
   render() {
+
     return (
       <div>
-        Apires :  <span>{this.props.apires}</span>
+        Apires :  <span>{this.props.apires.comment}</span>
       </div>
     );
   }

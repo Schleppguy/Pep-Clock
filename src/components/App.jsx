@@ -10,8 +10,8 @@ class App extends React.Component {
   }
 
 componentDidMount() {
-  axios.get('/api').then( response => {
-    this.setState({apires: response.data.message});
+  axios.get('/api/pepListItems').then( response => {
+    this.setState({apires: response.data});
   });
 }
   render() {

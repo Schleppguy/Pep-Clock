@@ -5,6 +5,7 @@ var app = express();
 var router = express.Router();
 var port = process.env.API_PORT || 3000;
 mongoose.connect('mongodb://pepuser:pepuser1@ds049496.mlab.com:49496/pepclock');
+var PepListItem = require('./models/pepListItem');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -20,6 +21,13 @@ app.use(function(req, res, next) {
 
 router.get('/', function(req, res) {
  res.json({ message: 'API Initialized!'});
+});
+
+router.get('/pepListItems', function(req, res) {
+  PepListItem.find({}, function(error, list){
+    console.log(list[0]);
+    res.json(list[0]);
+  });
 });
 
 app.all('*', function (req, res, next){
