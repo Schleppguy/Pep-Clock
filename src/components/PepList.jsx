@@ -2,7 +2,6 @@ import React from 'react';
 import PepListItem from './PepListItem.jsx';
 
 class PepList extends React.Component {
-
   constructor(props) {
     super(props);
   }

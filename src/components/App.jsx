@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import PepList from './PepList.jsx';
+import PepListForm from './PepListForm.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +23,7 @@ getList() {
   render() {
     return (
       <div>
+        <PepListForm />
         <PepList pepList={this.state.pepList}/>
       </div>
     );
