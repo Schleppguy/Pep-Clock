@@ -25,8 +25,7 @@ router.get('/', function(req, res) {
 
 router.get('/pepListItems', function(req, res) {
   PepListItem.find({}, function(error, list){
-    console.log(list[0]);
-    res.json(list[0]);
+    res.json(list);
   });
 });
 

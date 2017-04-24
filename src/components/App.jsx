@@ -5,20 +5,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apires: 'Steve'
+      pepList: []
     };
   }
 
 componentDidMount() {
+  this.getList()
+  setInterval(this.getList.bind(this), 1000)
+}
+
+getList() {
   axios.get('/api/pepListItems').then( response => {
-    this.setState({apires: response.data});
-  });
+  this.setState({pepList: response.data});
+  })
 }
   render() {
     return (
       <div>
-        <p>Application</p>
-        <PepList apires={this.state.apires}/>
+        <PepList pepList={this.state.pepList}/>
       </div>
     );
   }
