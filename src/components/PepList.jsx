@@ -8,8 +8,8 @@ class PepList extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Here's Some Love!</h2> 
+      <div className='pep-list'>
+        <h2 className='h2'>Here's Some Love!</h2> 
           {this.props.pepList.map(item => (<PepListItem key={item._id} listItem={item}/>))}
       </div>
     );

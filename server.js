@@ -29,6 +29,24 @@ router.get('/pepListItems', function(req, res) {
   });
 });
 
+router.post('/pepListItems', function(req, res){
+  var item = new PepListItem({
+    author: req.body.author,
+    comment: req.body.comment,
+    imgUrl: req.body.imgUrl,
+    pep: 'my pep'
+  });
+
+  item.save();
+
+});
+
+app.post('/', function(req, res) {
+
+  console.log(req.body);
+  res.end();
+});
+
 app.all('*', function (req, res, next){
   console.log('Serving request type ' + req.method + ' for url ' + req.url);
   next();
