@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var router = express.Router();
 var port = process.env.API_PORT || 3000;
-mongoose.connect('mongodb://pepuser:pepuser1@ds049496.mlab.com:49496/pepclock');
+mongoose.connect('');
 var PepListItem = require('./models/pepListItem');
 
 app.use(bodyParser.urlencoded({ extended: true }));
